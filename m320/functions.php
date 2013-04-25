@@ -43,6 +43,13 @@ add_action('init', function(){
     remove_post_type_support( 'page', 'revisions' );
 });
 
+// Remove comment reply head styles
+// http://www.narga.net/how-to-remove-or-disable-comment-reply-js-and-recentcomments-from-wordpress-header
+add_action( 'widgets_init', function () {
+    global $wp_widget_factory;
+    remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
+});
+
 /**
  * after_setup_theme Hook
  **/
