@@ -4,6 +4,9 @@
 // Normalize.css
 @import "normalize";
 
+// Normalize.css
+@import "vars";
+
 // Helpers
 @import "helpers";
 
@@ -13,8 +16,11 @@
 // jQuery Lightbox
 @import "lightbox";
 
-// Temp
-@import "temp";
+// Layout
+@import "layout";
+
+// Modules
+@import "modules";
 
 // Main Site
 @import "site";
