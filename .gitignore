@@ -1,0 +1,22 @@
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Mac crap
+.DS_Store
+
+/*
+
+!.gitignore
+!.gitattributes
+
+!m320/
+!mnc/
+
+mnc/node_modules
+mnc/.sass-cache
+mnc/css/
+mnc/js/*.js
+!mnc/js/script.js
