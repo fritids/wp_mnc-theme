@@ -1,0 +1,20 @@
+// sass --watch --debug-info --sourcemap scss/main.scss:css/main.css
+// sass --update --style compressed scss/main.scss:css/main-min.css
+
+// Normalize.css
+@import "normalize";
+
+// Helpers
+@import "helpers";
+
+// WordPress Styles
+@import "wp-styles";
+
+// jQuery Lightbox
+@import "lightbox";
+
+// Temp
+@import "temp";
+
+// Main Site
+@import "site";

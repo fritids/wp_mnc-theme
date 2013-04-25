@@ -1,0 +1,28 @@
+/* BLOCK DATE MODULE ------------------------------------------------------------------------ */
+.block-date{
+	position: relative;
+	margin-left: 60px;
+}
+.block-date .date-block{
+	position: absolute;
+	width: 30px;
+	padding: 3px;
+	background-color: #a3c003;
+	color: #fff;
+	font-size: 22px;
+	text-align: center;
+	line-height: 1;
+	text-transform: uppercase;
+	top: 5px;
+	left: -60px;
+}
+.block-date .date-block span{
+	display: block;
+}
+.block-date .date-block .date-month{
+	font-size: 12px;
+	font-weight: bold;
+}
+.block-date .date-year{
+	font-size: 12px;
+}

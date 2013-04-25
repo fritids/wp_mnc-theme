@@ -1,0 +1,15 @@
+#page,
+#page > header,
+#page > header > hgroup,
+#page > header > nav,
+#page > #main,
+#page > footer{
+	outline: 2px dashed #e5e5e5;
+}
+
+/* Layout */
+#page{
+	width: 980px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
