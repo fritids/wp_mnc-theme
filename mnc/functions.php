@@ -31,15 +31,15 @@ if ( ! isset( $content_width ) ){
  **/
 add_action('wp_enqueue_scripts', function(){
 
+    // Modernizr
+    wp_enqueue_script('modernizr', M320_STYLESHEET_URI . '/js/lib/modernizr-min.js', false, null);
+
     //CSS
     if (MNC_DEBUG) {
         wp_enqueue_style( 'style', M320_STYLESHEET_URI . '/css/main.css', '', time() );
     } else {
         wp_enqueue_style( 'style', M320_STYLESHEET_URI . '/css/main-min.css', '', null );
     }
-
-    // Modernizr
-    wp_enqueue_script('modernizr', M320_STYLESHEET_URI . '/js/lib/modernizr-min.js', false, null);
 
     // jQuery
     wp_deregister_script('jquery');
