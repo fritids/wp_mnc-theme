@@ -5,17 +5,17 @@
  */
 
 /**
- * DEBUG
+ * Constants
  */
 define('MNC_DEBUG', true);
 
 /**
- * CUSTOM POST TYPE
+ * Custom post type
  */
 //require_once( STYLESHEETPATH . '/inc/custom_posts_types/custom_posts_types.php' );
 
 /**
- * CUSTOM META BOXES
+ * Custom metaboxes
  */
 //require_once( STYLESHEETPATH . '/inc/metabox/example-functions.php' );
 
@@ -25,6 +25,16 @@ define('MNC_DEBUG', true);
 if ( ! isset( $content_width ) ){
     $content_width = 640;
 }
+
+
+
+
+
+/*
+-------------------------------------------------------------------------------
+HOOKS
+-------------------------------------------------------------------------------
+*/
 
 /**
  * JavaScript & CSS Load
@@ -88,13 +98,20 @@ add_filter('the_content', function( $content ){
 });
 
 
-/* ------------------------------------------------------------------------------- *
- * STUFF FOR NON-ADMINS
- * ------------------------------------------------------------------------------- */
+
+
+
+/*
+-------------------------------------------------------------------------------
+STUFF FOR NON-ADMINS
+-------------------------------------------------------------------------------
+*/
 
 if(current_user_can('administrator')) return false;
 
-// REMOVE DASHBOARD MENUS
+/**
+ * Remove Dashboard menus
+ */
 add_action('admin_menu', function(){
     remove_menu_page('wpcf7');
     global $menu;
