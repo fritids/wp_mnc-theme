@@ -13,10 +13,10 @@
 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="viewport" content="width=device-width" />
 
 	<title><?php m320_page_title(); ?></title>
-	<meta name="viewport" content="width=device-width" />
 	<meta name="author" content="Matias Mancini" />
 
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -38,7 +38,7 @@
 				<h3 class="visuallyhidden"><?php _e( 'Main Menu', 'm320' ); ?></h3>
 				<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'm320' ); ?>"><?php _e( 'Skip to content', 'm320' ); ?></a>
 				<?php wp_nav_menu( array('container' => false, 'menu' => 'primary', 'menu_class' => 'menu inline' ) ) ?>
-			</nav><!-- #site-navigation -->
+			</nav>
 		</header>
 
 		<div id="main">
