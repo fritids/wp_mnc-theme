@@ -4,14 +4,23 @@
  * @subpackage m320
  */
 
-// WP Options
-// http://xxx/wp-admin/options.php
-
+/**
+ * Define Constants
+ */
 define('M320_TEMPLATE_URI', get_template_directory_uri());
 define('M320_STYLESHEET_URI', get_stylesheet_directory_uri());
 define('M320_SITE_EMAIL', get_option('mnc_site_email') ? get_option('mnc_site_email') : 'info@' . mb_substr(get_bloginfo('wpurl'), 7));
 define('M320_SITE_NAME', wp_specialchars_decode(get_bloginfo('name')));
 define('M320_SITE_DESCRIPTION', wp_specialchars_decode(get_bloginfo('description')));
+
+/**
+ * Load up our theme options page and related code.
+ */
+require_once( STYLESHEETPATH . '/inc/theme-options/theme-options.php' );
+
+
+
+
 
 /*
 -------------------------------------------------------------------------------
@@ -19,40 +28,9 @@ HOOKS
 -------------------------------------------------------------------------------
 */
 
-// Remove Admin Bar
-add_filter('show_admin_bar', '__return_false');
-
-// Default "Link to File" when uploading an image
-update_option('image_default_link_type', 'file');
-
-// Remove Metadata Generator in HTML & RSS Feed
-remove_action('wp_head', 'wp_generator');
-add_filter('the_generator', '__return_zero');
-
-// Set Up Email FROM data
-add_filter('wp_mail_from', function(){
-    return M320_SITE_EMAIL;
-});
-add_filter('wp_mail_from_name', function(){
-    return M320_SITE_NAME;
-});
-
-// Remove Comments & Revisions Support for Pages
-add_action('init', function(){
-    remove_post_type_support( 'page', 'comments' );
-    remove_post_type_support( 'page', 'revisions' );
-});
-
-// Remove comment reply head styles
-// http://www.narga.net/how-to-remove-or-disable-comment-reply-js-and-recentcomments-from-wordpress-header
-add_action( 'widgets_init', function () {
-    global $wp_widget_factory;
-    remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
-});
-
 /**
  * after_setup_theme Hook
- **/
+ */
 add_action( 'after_setup_theme', function(){
 
     // Translations
@@ -62,7 +40,10 @@ add_action( 'after_setup_theme', function(){
     add_editor_style();
 
     // Add default posts and comments RSS feed links to <head>.
-    add_theme_support( 'automatic-feed-links' );
+    //add_theme_support( 'automatic-feed-links' );
+
+    // This theme supports a variety of post formats.
+    add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status' ) );
 
     // This theme uses Featured Images (also known as post thumbnails) for per-post/per-page Custom Header images
     add_theme_support( 'post-thumbnails' );
@@ -72,13 +53,46 @@ add_action( 'after_setup_theme', function(){
 
     //Enable Navigation (primary - secondary))
     register_nav_menus(array(
-        'primary' => 'Primary navigation',
-        'secondary' => 'Secondary Navigation'
+        'primary' => __('Primary navigation', 'm320'),
+        'secondary' => __('Secondary Navigation', 'm320')
     ));
 
-    // Load up our theme options page and related code.
-    require_once( STYLESHEETPATH . '/inc/theme-options/theme-options.php' );
+});
 
+/**
+ * Remove Admin Bar
+ */
+add_filter('show_admin_bar', '__return_false');
+
+/**
+ * Default "Link to File" when uploading an image
+ */
+update_option('image_default_link_type', 'file');
+
+/**
+ * Remove Metadata Generator in HTML & RSS Feed
+ */
+remove_action('wp_head', 'wp_generator');
+add_filter('the_generator', '__return_zero');
+
+/**
+ * Set Up Email FROM data
+ */
+add_filter('wp_mail_from', function(){
+    return M320_SITE_EMAIL;
+});
+add_filter('wp_mail_from_name', function(){
+    return M320_SITE_NAME;
+});
+
+/**
+ * Remove Comments & Revisions Support for Pages
+ */
+add_action('init', function(){
+    remove_post_type_support( 'post', 'comments' );
+    remove_post_type_support( 'post', 'revisions' );
+    remove_post_type_support( 'page', 'comments' );
+    remove_post_type_support( 'page', 'revisions' );
 });
 
 /**
@@ -98,6 +112,8 @@ add_filter( 'post_mime_types', function( $post_mime_types ) {
  * Register Default Sidebar
  **/
 add_action('widgets_init', function(){
+
+    // Register Default Sidebar
     register_sidebar( array(
         'name' => __( 'Main Sidebar', 'm320' ),
         'id' => 'sidebar-1',
@@ -106,6 +122,11 @@ add_action('widgets_init', function(){
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
+
+    // Remove comment reply head styles
+    // http://www.narga.net/how-to-remove-or-disable-comment-reply-js-and-recentcomments-from-wordpress-header
+    global $wp_widget_factory;
+    remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
 });
 
 /**
@@ -163,9 +184,13 @@ add_action('publish_post', function($post_id){
     wp_mail( get_settings('admin_email'), '[Blog Post] ' . $title , $permalink );
 });
 
+
+
+
+
 /*
 -------------------------------------------------------------------------------
-FUNCTIONS
+THEME FUNCTIONS
 -------------------------------------------------------------------------------
 */
 
@@ -173,7 +198,7 @@ FUNCTIONS
  * Social Links for the Sidebar
  * Usage echo m320_get_social_links( array( 'facebook' => 'Facebook', 'twitter' => 'Twitter', 'googleplus' => 'Google+', 'linkedin' => 'LinkedIn' ) );
  **/
-if(!function_exists('m320_get_social_links')){
+if( !function_exists('m320_get_social_links')){
     function m320_get_social_links( $social_networks, $rss = true ){
 
         $html = '<ul>';
@@ -196,6 +221,7 @@ if(!function_exists('m320_get_social_links')){
 /**
  * Social Sharing buttons
  */
+if ( !function_exists( 'm320_social_buttons' ) ) :
 function m320_social_buttons($networks){
 
     global $post;
@@ -272,11 +298,13 @@ function m320_social_buttons($networks){
 
     }, 100);
 }
+endif;
 
 /**
  * Print the <title> tag based on what is being viewed.
  */
-function m320_page_title(){
+if ( !function_exists( 'm320_page_title' ) ) :
+function m320_page_title() {
     global $page, $paged;
     wp_title( '|', true, 'right' );
 
@@ -292,11 +320,12 @@ function m320_page_title(){
     if ( $paged >= 2 || $page >= 2 )
         echo ' | ' . sprintf( __( 'Page %s', 'm320' ), max( $paged, $page ) );
 }
+endif;
 
 /**
  * Prints HTML date and author for the current post.
  */
-if ( ! function_exists( 'm320_posted_on' ) ) :
+if ( !function_exists( 'm320_posted_on' ) ) :
 function m320_posted_on($author = true) {
     if($author){
         printf( __( '<time class="entry-date" datetime="%3$s" pubdate>%4$s</time><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'm320' ),
@@ -316,7 +345,6 @@ endif;
 
 /**
  * Display the post date in three span labels
- * @matmancini
  **/
 if ( !function_exists('m320_date_block')){
     function m320_date_block(){
@@ -361,8 +389,7 @@ if( !function_exists('has_shortcode')){
  * http://bitly.com/
  * Inspired on: http://wp.tutsplus.com/tutorials/using-bitly-urls-in-wordpress-and-use-them-with-twitter-and-googleplus-scripts/
  */
-if( !function_exists('bitly') ){
-
+if( !function_exists('bitly') ) {
     // Display bitly custom field, if nox exists creates it
     function bitly($post_id){
 
@@ -412,27 +439,22 @@ if( !function_exists('bitly') ){
     }
 }
 
-/*
--------------------------------------------------------------------------------
-HANDY FUNCTIONS
--------------------------------------------------------------------------------
-*/
-
 /**
  * Remove http:// & https from string
  */
-function m320_remove_http( $string ){
-    $remove = array( 'http://', 'https://' );
-    $cleanUrl = str_replace($remove, '', $string);
+if( !function_exists('m320_remove_http') ) {
+    function m320_remove_http( $string ){
+        $remove = array( 'http://', 'https://' );
+        $cleanUrl = str_replace($remove, '', $string);
 
-    return $cleanUrl;
+        return $cleanUrl;
+    }
 }
 
 /**
  * Trim By Characters
  */
-if( !function_exists('short_str') ){
-
+if( !function_exists('short_str') ) {
     function short_str( $str, $len, $cut = true ) {
         if ( strlen( $str ) <= $len ) return $str;
         return ( $cut ? substr( $str, 0, $len ) : substr( $str, 0, strrpos( substr( $str, 0, $len ), ' ' ) ) ) . '&hellip;';
@@ -442,8 +464,7 @@ if( !function_exists('short_str') ){
 /**
  * Trim By Words
  */
-if( !function_exists('word_trim') ){
-
+if( !function_exists('word_trim') ) {
     function word_trim($string, $count, $ellipsis = false){
         $words = explode(' ', $string);
         if (count($words) > $count){
@@ -463,17 +484,23 @@ if( !function_exists('word_trim') ){
 /**
  * Display navigation to next/previous pages when applicable
  */
-function m320_content_nav( $nav_id ) {
-    global $wp_query;
+if( !function_exists('m320_content_nav') ) {
+    function m320_content_nav( $nav_id ) {
+        global $wp_query;
 
-    if ( $wp_query->max_num_pages > 1 ) : ?>
-        <nav id="<?php echo $nav_id; ?>">
-            <h3 class="assistive-text"><?php _e( 'Post navigation', 'm320' ); ?></h3>
-            <div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'm320' ) ); ?></div>
-            <div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'm320' ) ); ?></div>
-        </nav><!-- #nav-above -->
-    <?php endif;
+        if ( $wp_query->max_num_pages > 1 ) : ?>
+            <nav id="<?php echo $nav_id; ?>">
+                <h3 class="assistive-text"><?php _e( 'Post navigation', 'm320' ); ?></h3>
+                <div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'm320' ) ); ?></div>
+                <div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'm320' ) ); ?></div>
+            </nav><!-- #nav-above -->
+        <?php endif;
+    }
 }
+
+
+
+
 
 /*
 -------------------------------------------------------------------------------
@@ -481,12 +508,16 @@ LOGIN CUSTOMIZATION
 -------------------------------------------------------------------------------
 */
 
-// Login Behavior
+/**
+ * Login Behavior
+ */
 add_action('login_headerurl', function(){
     return home_url('/');
 });
 
-// Branding The Login Screen (logo)
+/**
+ * Branding The Login Screen
+ */
 add_action('login_head', function(){
     echo '<style type="text/css">
         h1 a { background: url('. M320_STYLESHEET_URI .'/images/admin-logo.png) no-repeat center top; !important }
@@ -499,10 +530,14 @@ add_action('login_head', function(){
         </style>';
 });
 
-// Admin Section Footer Text
+/**
+ * Admin Section Footer Text
+ */
 add_filter('admin_footer_text', function(){
     echo '<p>Desarrollado por <a href="http://matiasmancini.com.ar" target="_blank">Matias Mancini</a></p>';
 });
+
+
 
 
 
@@ -513,15 +548,21 @@ STUFF FOR NON-ADMINS
 */
 if( current_user_can('administrator') ) return false;
 
-// Disable Core Updates
+/**
+ * Disable Core Updates
+ */
 remove_action( 'load-update-core.php', 'wp_update_core' );
 add_filter( 'pre_site_transient_update_core', function(){ return; } );
 
-// Disable Plugin Updates
+/**
+ * Disable Plugin Updates
+ */
 remove_action( 'load-update-core.php', 'wp_update_plugins' );
 add_filter( 'pre_site_transient_update_plugins', function(){ return; } );
 
-// REMOVE META BOXES FROM WORDPRESS DASHBOARD FOR ALL USERS
+/**
+ * Remove metaboxes from the dashboard
+ */
 add_action('wp_dashboard_setup', function(){
     global $wp_meta_boxes;
     unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
@@ -529,19 +570,20 @@ add_action('wp_dashboard_setup', function(){
     unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
 });
 
+/**
+ * Remove metaboxes from the edit page
+ */
 add_action('admin_init', function(){
-    // Remove Page Metaboxes
+    // Page
     remove_meta_box( 'pageparentdiv', 'page', 'side' );
     remove_meta_box( 'postcustom', 'page', 'normal' );
-    remove_meta_box( 'slugdiv', 'page', 'normal' );
     remove_meta_box( 'authordiv', 'page', 'normal' );
 
-    // Remove Post Metaboxes
+    // Post
     remove_meta_box( 'trackbacksdiv', 'post', 'normal' );
     remove_meta_box( 'postcustom', 'post', 'normal' );
     remove_meta_box( 'commentstatusdiv', 'post', 'normal' );
     remove_meta_box( 'commentsdiv', 'post', 'normal' );
-    remove_meta_box( 'slugdiv', 'post', 'normal' );
     remove_meta_box( 'authordiv', 'post', 'normal' );
     remove_meta_box( 'revisionsdiv', 'post', 'normal' );
 });
