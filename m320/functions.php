@@ -181,7 +181,7 @@ add_action('publish_post', function($post_id){
     $post = get_post($post_id);
     $title = $post->post_title;
     $permalink = get_permalink($post->ID);
-    wp_mail( get_settings('admin_email'), '[Blog Post] ' . $title , $permalink );
+    wp_mail( get_option('admin_email'), '[Blog Post] ' . $title , $permalink );
 });
 
 
