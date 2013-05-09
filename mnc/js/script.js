@@ -26,21 +26,7 @@
     // jQuery lightBox init
     $(function(){
 
-        var imgUrl = MNC.templateUri + '/images/lightbox/' + MNC.siteLang,
-            txtImage = MNC.siteLang === 'es-AR' ? 'Imagen' : 'Image',
-            txtOf = MNC.siteLang === 'es-AR' ? 'de' : 'of';
-
-        var opts = {
-            'imageLoading': imgUrl + '/lightbox-ico-loading.gif',
-            'imageBtnClose': imgUrl + '/lightbox-btn-close.gif',
-            'imageBtnPrev': imgUrl + '/lightbox-btn-prev.gif',
-            'imageBtnNext': imgUrl + '/lightbox-btn-next.gif',
-            'imageBlank': imgUrl + '/lightbox-blank.gif',
-            'txtImage' : txtImage,
-            'txtOf' : txtOf
-        };
-
-        $('a[rel="lightbox"]').lightBox( opts );
+        $('a[rel="fancybox"]').fancybox();
 
     });
 

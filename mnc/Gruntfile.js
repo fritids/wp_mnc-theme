@@ -37,8 +37,8 @@ module.exports = function(grunt) {
 				src: [
 				'js/plugins/jquery.easing.js',
 				'js/plugins/jquery.fitvids.js',
-				'js/plugins/jquery.lightbox-min.js',
 				'js/plugins/jquery.smooth-scrolling.js',
+				'js/plugins/jquery.fancybox.js',
 				'js/plugins/minform.js'
 				],
 				dest: 'js/plugins.js'
