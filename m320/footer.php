@@ -9,7 +9,7 @@
 ?>
         </div> <?php // #main ?>
     	<footer class="site-footer" role="contentinfo">
-            <p class="site-footer-copy">&copy;2010 <?php bloginfo(); ?></p>
+            <p class="site-footer-copy">&copy;2013 <?php bloginfo(); ?></p>
             <p class="site-footer-dev">HTML5 &amp; CSS3 by <a href="http://matiasmancini.com.ar" title="Matias Mancini - WebSite" target="_blank">Matias Mancini</a></p>
     	</footer>
 
