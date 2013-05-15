@@ -198,13 +198,13 @@ THEME FUNCTIONS
  * Social Links for the Sidebar
  * Usage echo m320_get_social_links( array( 'facebook' => 'Facebook', 'twitter' => 'Twitter', 'googleplus' => 'Google+', 'linkedin' => 'LinkedIn' ) );
  **/
-if( !function_exists('m320_get_social_links')){
+if(!function_exists('m320_get_social_links')){
     function m320_get_social_links( $social_networks, $rss = true ){
 
-        $html = '<ul>';
+        $html = '<ul class="social-links">';
 
         foreach( $social_networks as $key => $val ){
-            $html .= '<li class="w-'. $key .'">';
+            $html .= '<li class="social-links-'. $key .'">';
             $html .= '<a target="_blank", href="'. get_option( 'mnc_' . $key . '_url' ) .'">'. $val .'</a>';
             $html .= '</li>';
         }
