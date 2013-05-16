@@ -36,18 +36,17 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<div class="hfeed site">
-		<header class="site-header" role="banner">
-			<h1 class="site-title">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-			</h1>
-
-			<nav class="main-nav" role="navigation">
+	<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header" role="banner">
+			<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+				<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
+			</a>
+			<nav id="site-navigation" class="navigation main-navigation" role="navigation">
 				<h3 class="visuallyhidden"><?php _e( 'Main Menu', 'm320' ); ?></h3>
-				<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'm320' ); ?>"><?php _e( 'Skip to content', 'm320' ); ?></a>
+				<a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'm320' ); ?>"><?php _e( 'Skip to content', 'm320' ); ?></a>
 				<?php wp_nav_menu( array('container' => false, 'menu' => 'primary', 'menu_class' => 'menu inline' ) ) ?>
-			</nav>
-		</header>
+			</nav><!-- #site-navigation -->
+		</header><!-- #masthead -->
 
 		<div id="main">
 
