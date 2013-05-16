@@ -8,9 +8,11 @@
  */
 ?>
         </div> <?php // #main ?>
-    	<footer class="site-footer" role="contentinfo">
-            <p class="site-footer-copy">&copy;2013 <?php bloginfo(); ?></p>
-            <p class="site-footer-dev">HTML5 &amp; CSS3 by <a href="http://matiasmancini.com.ar" title="Matias Mancini - WebSite" target="_blank">Matias Mancini</a></p>
+    	<footer id="colophon" class="site-footer" role="contentinfo">
+    		<div class="dev-info">
+    			<p class="dev-info-copy">&copy;2013 <?php bloginfo(); ?></p>
+            	<p class="dev-info-author"><a href="http://matiasmancini.com.ar" title="Matias Mancini - WebSite" target="_blank">Matias Mancini</a></p>
+    		</div>
     	</footer>
 
     </div> <?php // #page ?>
