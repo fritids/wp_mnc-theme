@@ -72,4 +72,4 @@
 
     <?php m320_social_buttons(array('facebook', 'twitter', 'google')) ?>
 
-</article><!-- #post-<?php the_ID(); ?> -->
+</article>
