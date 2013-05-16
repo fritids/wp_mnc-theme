@@ -1,26 +1,3 @@
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Image replacement
- */
-
-.ir {
-    background-color: transparent;
-    border: 0;
-    overflow: hidden;
-    /* IE 6/7 fallback */
-    *text-indent: -9999px;
-}
-
-.ir:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 150%;
-}
-
 /*
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
@@ -97,4 +74,26 @@
 
 .clearfix {
     *zoom: 1;
+}
+
+// Skip link
+.skip-link {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+.skip-link:hover,
+.skip-link:active,
+.skip-link:focus {
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 3px;
+    clip: auto !important;
+    color: #000;
+    display: block;
+    font-size: 12px;
+    padding: 12px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 100000; /* Above WP toolbar */
 }

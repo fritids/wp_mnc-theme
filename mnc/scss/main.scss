@@ -7,17 +7,17 @@
 // Typekit
 //@import("typekit");
 
-// Normalize.css
-@import "vars";
-
-// Helpers
-@import "helpers";
-
 // WordPress Styles
 @import "wp-styles";
 
 // jQuery fancybox
 @import "jquery.fancybox";
+
+// Normalize.css
+@import "vars";
+
+// Base
+@import "base";
 
 // Layout
 @import "layout";
@@ -25,5 +25,5 @@
 // Modules
 @import "modules";
 
-// Main Site
-@import "site";
+// Helpers
+@import "helpers";
