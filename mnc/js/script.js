@@ -23,11 +23,4 @@
 
     });
 
-    // jQuery lightBox init
-    $(function(){
-
-        $('a[rel="fancybox"]').fancybox();
-
-    });
-
 }(window, jQuery));

@@ -38,8 +38,7 @@ module.exports = function(grunt) {
 					//'js/plugins/jquery.easing.js',
 					//'js/plugins/jquery.smooth-scrolling.js',
 					//'js/plugins/minform.js'
-					'js/plugins/jquery.fitvids.js',
-					'js/plugins/jquery.fancybox.js'
+					'js/plugins/jquery.fitvids.js'
 				],
 				dest: 'js/plugins.js'
 			}
