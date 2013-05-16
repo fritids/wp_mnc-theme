@@ -10,21 +10,14 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 		<header class="entry-header">
-			<?php if ( is_sticky() ) : ?>
-				<hgroup>
-					<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'm320' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-					<h3 class="entry-format"><?php _e( 'Featured', 'm320' ); ?></h3>
-				</hgroup>
-			<?php else : ?>
-			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'm320' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-			<?php endif; ?>
-
-			<?php if ( 'post' == get_post_type() ) : ?>
+			<h1 class="entry-title">
+				<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'm320' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+					<?php the_title(); ?>
+				</a>
+			</h1>
 			<div class="entry-meta">
 				<?php m320_posted_on(); ?>
 			</div><!-- .entry-meta -->
-			<?php endif; ?>
-
 		</header><!-- .entry-header -->
 
 		<?php if ( is_search() ) : // Only display Excerpts for Search ?>
