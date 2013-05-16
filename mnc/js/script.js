@@ -23,4 +23,17 @@
 
     });
 
+    $(function(){
+
+        // Magnific popup init
+        var $links = $('a[rel="gallery"]');
+        $links.magnificPopup({
+            type: 'image',
+            gallery: {
+                enabled: $links.length > 1
+            }
+        });
+
+    });
+
 }(window, jQuery));
