@@ -10,7 +10,7 @@
         $('.post').find('.entry-content').fitVids();
 
         // Polyfill for placeholder, required & autofocus
-        var minformUrl = MNC.templateUri + '/js/minform.js';
+        /*var minformUrl = MNC.templateUri + '/js/minform.js';
         Modernizr.load({
             test: Modernizr.input.placeholder && Modernizr.input.required && Modernizr.input.autofocus,
             nope: minformUrl,
@@ -19,7 +19,7 @@
                     $('form').minform();
                 }
             }
-        });
+        });*/
 
     });
 
