@@ -35,8 +35,6 @@ get_header(); ?>
 					rewind_posts();
 				?>
 
-				<?php m320_content_nav( 'nav-above' ); ?>
-
 				<?php
 				// If a user has filled out their description, show a bio on their entries.
 				if ( get_the_author_meta( 'description' ) ) : ?>
@@ -63,8 +61,6 @@ get_header(); ?>
 					?>
 
 				<?php endwhile; ?>
-
-				<?php m320_content_nav( 'nav-below' ); ?>
 
 			<?php else : ?>
 
