@@ -14,18 +14,18 @@ get_header(); ?>
 
 						<header class="entry-header">
 							<h1 class="entry-title"><?php the_title(); ?></h1>
-						</header><!-- .entry-header -->
+						</header>
 
 						<div class="entry-content">
 							<?php the_content(); ?>
-						</div><!-- .entry-content -->
+						</div>
 
-					</article><!-- #post -->
+					</article>
 
 				<?php endwhile; ?>
 
-			</div><!-- #content -->
-		</div><!-- #primary -->
+			</div>
+		</div>
 
 <?php //get_sidebar(); ?>
 <?php get_footer(); ?>
