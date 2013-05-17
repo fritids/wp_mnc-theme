@@ -1,23 +1,13 @@
 <?php get_header(); ?>
 
-		<section id="primary">
+		<div id="primary">
 			<div id="content" role="main">
 
-			<?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) : the_post(); ?>
 
-				<?php the_post(); ?>
+				<h1><?php printf( __( 'Author Archives: %s', 'm320' ), '<span class="vcard">' . get_the_author() . '</span>' ); ?></h1>
 
-				<header class="page-header">
-					<h1 class="alt-title"><?php printf( __( 'Author Archives: %s', 'm320' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?></h1>
-				</header>
-
-				<?php
-					/* Since we called the_post() above, we need to
-					 * rewind the loop back to the beginning that way
-					 * we can run the loop properly, in full.
-					 */
-					rewind_posts();
-				?>
+				<?php rewind_posts(); ?>
 
 				<?php
 				// If a user has filled out their description, show a bio on their entries.
@@ -35,7 +25,14 @@
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php get_template_part( 'content', get_post_format() ); ?>
+					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+						<h1>
+							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'm320' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+								<?php the_title(); ?>
+							</a>
+						</h1>
+						<?php the_excerpt(); ?>
+					</article>
 
 				<?php endwhile; ?>
 
@@ -55,7 +52,7 @@
 			<?php endif; ?>
 
 			</div>
-		</section>
+		</div>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

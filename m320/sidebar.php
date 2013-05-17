@@ -6,7 +6,9 @@
 * @subpackage m320
 */
 ?>
-<div class="secondary sidebar blog" role="complementary">
+<section class="secondary sidebar blog" role="complementary">
+
+	<h2>Sidebar</h2>
 
 	<aside class="widget w-search">
 		<h3 class="s-visuallyhidden"><?php _e( 'Blog Search', 'm320' ); ?></h3>
@@ -36,25 +38,24 @@
 		<h3><?php _e( 'Recent Posts', 'm320' ); ?></h3>
 		<ul>
 			<?php foreach($posts as $post) : ?>
-			<li><a href="<?php the_permalink(); ?>" title="<?php the_title() ?>"><?php the_title(); ?></a></li>
-		<?php endforeach; ?>
-	</ul>
-</aside>
+				<li><a href="<?php the_permalink(); ?>" title="<?php the_title() ?>"><?php the_title(); ?></a></li>
+			<?php endforeach; ?>
+		</ul>
+	</aside>
 
 
-<aside class="widget w-tags">
-	<h3><?php _e( 'Posts Tags', 'm320' ); ?></h3>
-	<?php $args = array(
-		'smallest' => 10,
-		'largest' => 20,
-		'orderby' => 'count',
-		'order' => 'DESC',
-		'number' => 50,
-		'separator' => ",\n",
-		'format' => 'list'
-		);
-		?>
+	<aside class="widget w-tags">
+		<h3><?php _e( 'Posts Tags', 'm320' ); ?></h3>
+		<?php $args = array(
+			'smallest' => 10,
+			'largest' => 20,
+			'orderby' => 'count',
+			'order' => 'DESC',
+			'number' => 50,
+			'separator' => ",\n",
+			'format' => 'list'
+		); ?>
 		<?php wp_tag_cloud($args); ?>
 	</aside>
 
-</div>
+</section>

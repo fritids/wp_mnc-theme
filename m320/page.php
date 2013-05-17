@@ -5,7 +5,7 @@
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 						<header class="entry-header">
 							<h1 class="entry-title"><?php the_title(); ?></h1>
@@ -15,12 +15,12 @@
 							<?php the_content(); ?>
 						</div>
 
-					</article>
+					</div>
 
 				<?php endwhile; ?>
 
 			</div>
 		</div>
 
-<?php //get_sidebar(); ?>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

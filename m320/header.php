@@ -38,15 +38,17 @@
 <body <?php body_class(); ?>>
 	<div id="page" class="hfeed site">
 		<header id="header" class="site-header" role="banner">
+			<?php if (is_home()) : ?><h1><?php endif; ?>
 			<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-				<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
+				<div class="site-title"><?php bloginfo( 'name' ); ?></div>
 			</a>
-			<nav id="nav" class="main-nav" role="navigation">
-				<h3 class="visuallyhidden"><?php _e( 'Main Menu', 'm320' ); ?></h3>
+			<?php if (is_home()) : ?></h1><?php endif; ?>
+
+			<div id="nav" class="main-nav" role="navigation">
 				<a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'm320' ); ?>"><?php _e( 'Skip to content', 'm320' ); ?></a>
 				<?php wp_nav_menu( array('container' => false, 'menu' => 'primary', 'menu_class' => 'menu inline' ) ) ?>
-			</nav>
+			</div>
 		</header>
 
-		<div id="main">
+		<main id="main">
 

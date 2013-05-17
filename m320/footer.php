@@ -7,7 +7,7 @@
  * @subpackage m320
  */
 ?>
-        </div>
+        </main>
     	<footer id="footer" class="site-footer" role="contentinfo">
     		<div class="dev-info">
     			<p class="dev-info-copy">&copy;2013 <?php bloginfo(); ?></p>

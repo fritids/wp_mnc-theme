@@ -1,25 +1,28 @@
 <?php get_header(); ?>
 
-		<section id="primary" class="l-left">
+		<div id="primary">
 			<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>
 
-				<header class="page-header">
-					<h1 class="alt-title"><?php
-						printf( __( 'Tag Archives: %s', 'm320' ), '<span>' . single_tag_title( '', false ) . '</span>' );
-					?></h1>
+				<h1><?php printf( __( 'Tag Archives: %s', 'm320' ), '<span>' . single_tag_title( '', false ) . '</span>' );	?></h1>
 
-					<?php
-						$tag_description = tag_description();
-						if ( ! empty( $tag_description ) )
-							echo apply_filters( 'tag_archive_meta', '<div class="tag-archive-meta">' . $tag_description . '</div>' );
-					?>
-				</header>
+				<?php
+					$tag_description = tag_description();
+					if ( ! empty( $tag_description ) )
+						echo apply_filters( 'tag_archive_meta', '<div class="tag-archive-meta">' . $tag_description . '</div>' );
+				?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php get_template_part( 'content', get_post_format() ); ?>
+					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+						<h1>
+							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'm320' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+								<?php the_title(); ?>
+							</a>
+						</h1>
+						<?php the_excerpt(); ?>
+					</article>
 
 				<?php endwhile; ?>
 
@@ -39,7 +42,7 @@
 			<?php endif; ?>
 
 			</div>
-		</section>
+		</div>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
