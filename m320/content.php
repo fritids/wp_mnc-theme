@@ -23,15 +23,15 @@
 			<?php endif; ?>
 		</header>
 
-		<?php if ( is_search() ) : // Only display Excerpts for Search ?>
+		<?php if ( is_search() ) :?>
 		<div class="entry-summary">
 			<?php the_excerpt(); ?>
-		</div><!-- .entry-summary -->
+		</div>
 		<?php else : ?>
 		<div class="entry-content">
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'm320' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'm320' ) . '</span>', 'after' => '</div>' ) ); ?>
-		</div><!-- .entry-content -->
+		</div>
 		<?php endif; ?>
 
-	</article><!-- #post-<?php the_ID(); ?> -->
+	</article>
