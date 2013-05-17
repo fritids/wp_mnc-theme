@@ -301,27 +301,6 @@ function m320_social_buttons($networks){
 endif;
 
 /**
- * Prints HTML date and author for the current post.
- */
-if ( !function_exists( 'm320_posted_on' ) ) :
-function m320_posted_on($author = true) {
-    if($author){
-        printf( __( '<time class="entry-date" datetime="%3$s" pubdate>%4$s</time><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'm320' ),
-            esc_url( get_permalink() ),
-            esc_attr( get_the_time() ),
-            esc_attr( get_the_date( 'c' ) ),
-            esc_html( get_the_date('j M Y') ),
-            esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-            sprintf( esc_attr__( 'View all posts by %s', 'm320' ), get_the_author() ),
-            esc_html( get_the_author() )
-        );
-    }else{
-        printf( __( '<time class="entry-date" datetime="'.esc_attr( get_the_date( 'c' ) ).'" pubdate>'.esc_html( get_the_date('j M Y') ).'</time>', 'm320' ));
-    }
-}
-endif;
-
-/**
  * Display the post date in three span labels
  **/
 if ( !function_exists('m320_date_block')){
