@@ -195,6 +195,50 @@ THEME FUNCTIONS
 */
 
 /**
+ * Entry meta list
+ * Usage echo mnc_entry_meta( array('author', 'date', 'categories', 'tags') );
+ *
+ */
+if (!function_exists('m320_entry_meta')) {
+    function m320_entry_meta ($items = [])  {
+        echo '<ul class="entry-meta">';
+
+            // Author
+            if (in_array('author', $items)) :
+                echo '<li class="entry-meta-author">';
+                    echo '<a href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" title="' . sprintf(__( 'Posts by %s', 'm320'), get_the_author()) . '">';
+                        echo printf(__('By %s', 'm320'), get_the_author());
+                    echo '</a>';
+                echo '</li>';
+            endif;
+
+            // Date
+            if (in_array('date', $items)) :
+            echo '<li class="entry-meta-date">';
+                echo '<time datetime="' . get_the_date('c') . '">' . get_the_date('j F Y') . '</time>';
+            echo '</li>';
+            endif;
+
+            // Categories
+            if (in_array('categories', $items)) :
+            echo '<li class="entry-meta-categories">';
+                echo get_the_category_list( __( ', ', 'm320' ) );
+            echo '</li>';
+            endif;
+
+            // Tags
+            if (in_array('tags', $items)) :
+            echo '<li class="entry-meta-tags">';
+                echo get_the_tag_list( '', __( ', ', 'm320' ) );
+            echo '</li>';
+            endif;
+
+        echo '</ul>';
+    }
+}
+
+
+/**
  * Social Links for the Sidebar
  * Usage echo m320_get_social_links( array( 'facebook' => 'Facebook', 'twitter' => 'Twitter', 'googleplus' => 'Google+', 'linkedin' => 'LinkedIn' ) );
  **/
