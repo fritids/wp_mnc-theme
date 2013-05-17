@@ -1,12 +1,4 @@
-<?php
-/**
- * The template used to display Tag Archive pages
- *
- * @package WordPress
- * @subpackage Theme_Name
- */
-
-get_header(); ?>
+<?php get_header(); ?>
 
 		<section id="primary" class="l-left">
 			<div id="content" role="main">

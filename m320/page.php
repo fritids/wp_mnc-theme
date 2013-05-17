@@ -1,9 +1,4 @@
-<?php
-/**
- * @package WordPress
- * @subpackage m320
- */
-get_header(); ?>
+<?php get_header(); ?>
 
 		<div id="primary">
 			<div id="content" role="main">

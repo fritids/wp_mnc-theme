@@ -1,14 +1,6 @@
-<?php
-/**
- * The main template file.
- *
- * @package WordPress
- * @subpackage m320
- */
+<?php get_header(); ?>
 
-get_header(); ?>
-
-		<div class="primary">
+		<div id="primary">
 			<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>

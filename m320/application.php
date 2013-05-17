@@ -1,12 +1,4 @@
-<?php
-/**
- * The Template for displaying Apllication attachment posts.
- *
- * @package WordPress
- * @subpackage m320
- */
-
-get_header(); ?>
+<?php get_header(); ?>
 
 		<section id="primary">
 			<div id="content" role="main">
