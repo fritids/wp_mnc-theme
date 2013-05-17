@@ -17,7 +17,8 @@
 
     </div>
 
-	<?php wp_footer(); ?>
+	<!-- wp footer -->
+    <?php wp_footer(); ?>
 
 </body>
 </html>
