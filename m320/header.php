@@ -45,8 +45,8 @@
 				<h3 class="visuallyhidden"><?php _e( 'Main Menu', 'm320' ); ?></h3>
 				<a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'm320' ); ?>"><?php _e( 'Skip to content', 'm320' ); ?></a>
 				<?php wp_nav_menu( array('container' => false, 'menu' => 'primary', 'menu_class' => 'menu inline' ) ) ?>
-			</nav><?php // #site-navigation ?>
-		</header><?php // #header ?>
+			</nav>
+		</header>
 
 		<div id="main">
 

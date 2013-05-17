@@ -19,12 +19,12 @@ get_header(); ?>
 						<h3 class="assistive-text"><?php _e( 'Post navigation', 'm320' ); ?></h3>
 						<span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr;</span> Previous', 'm320' ) ); ?></span>
 						<span class="nav-next"><?php next_post_link( '%link', __( 'Next <span class="meta-nav">&rarr;</span>', 'm320' ) ); ?></span>
-					</nav><!-- #nav-single -->
+					</nav>
 
-				<?php endwhile; // end of the loop. ?>
+				<?php endwhile; ?>
 
-			</div><!-- #content -->
-		</div><!-- #primary -->
+			</div>
+		</div>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

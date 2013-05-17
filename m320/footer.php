@@ -7,17 +7,17 @@
  * @subpackage m320
  */
 ?>
-        </div> <?php // #main ?>
+        </div>
     	<footer id="footer" class="site-footer" role="contentinfo">
     		<div class="dev-info">
     			<p class="dev-info-copy">&copy;2013 <?php bloginfo(); ?></p>
             	<p class="dev-info-author"><a href="http://matiasmancini.com.ar" title="Matias Mancini - WebSite" target="_blank">Matias Mancini</a></p>
     		</div>
-    	</footer><?php // #footer ?>
+    	</footer>
 
-    </div> <?php // #page ?>
+    </div>
 
-    <?php wp_footer(); ?>
+	<?php wp_footer(); ?>
 
 </body>
 </html>

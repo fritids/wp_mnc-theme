@@ -57,4 +57,4 @@
 		<?php wp_tag_cloud($args); ?>
 	</aside>
 
-</div><!-- #secondary -->
+</div>

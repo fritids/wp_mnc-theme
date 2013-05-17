@@ -13,15 +13,7 @@ get_header(); ?>
 
 			<?php if ( have_posts() ) : ?>
 
-				<?php
-					/* Queue the first post, that way we know
-					 * what author we're dealing with (if that is the case).
-					 *
-					 * We reset this later so we can run the loop
-					 * properly with a call to rewind_posts().
-					 */
-					the_post();
-				?>
+				<?php the_post(); ?>
 
 				<header class="page-header">
 					<h1 class="alt-title"><?php printf( __( 'Author Archives: %s', 'm320' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?></h1>
@@ -41,24 +33,17 @@ get_header(); ?>
 				<div id="author-info">
 					<div id="author-avatar">
 						<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentyeleven_author_bio_avatar_size', 60 ) ); ?>
-					</div><!-- #author-avatar -->
+					</div>
 					<div id="author-description">
 						<h2><?php printf( __( 'About %s', 'm320' ), get_the_author() ); ?></h2>
 						<?php the_author_meta( 'description' ); ?>
-					</div><!-- #author-description	-->
-				</div><!-- #entry-author-info -->
+					</div>
+				</div>
 				<?php endif; ?>
 
-				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'content', get_post_format() );
-					?>
+					<?php get_template_part( 'content', get_post_format() ); ?>
 
 				<?php endwhile; ?>
 
@@ -67,18 +52,18 @@ get_header(); ?>
 				<article id="post-0" class="post no-results not-found">
 					<header class="entry-header">
 						<h1 class="entry-title"><?php _e( 'Nothing Found', 'm320' ); ?></h1>
-					</header><!-- .entry-header -->
+					</header>
 
 					<div class="entry-content">
 						<p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'm320' ); ?></p>
 						<?php get_search_form(); ?>
-					</div><!-- .entry-content -->
-				</article><!-- #post-0 -->
+					</div>
+				</article>
 
 			<?php endif; ?>
 
-			</div><!-- #content -->
-		</section><!-- #primary -->
+			</div>
+		</section>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
