@@ -96,19 +96,6 @@ add_action('init', function(){
 });
 
 /**
- * Add Extra Media Type Filters to the WordPress Media Manager
- * http://wp.tutsplus.com/articles/tips-articles/quick-tip-add-extra-media-type-filters-to-the-wordpress-media-manager/
- */
-add_filter( 'post_mime_types', function( $post_mime_types ) {
-
-    // Add application/pdf to array of mime types
-    $post_mime_types['application/pdf'] = array( __( 'PDFs' ), __( 'Manage PDFs' ), _n_noop( 'PDF <span class="count">(%s)</span>', 'PDFs <span class="count">(%s)</span>' ) );
-
-    return $post_mime_types;
-
-});
-
-/**
  * Register Default Sidebar
  **/
 add_action('widgets_init', function(){
