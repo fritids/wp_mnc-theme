@@ -5,7 +5,7 @@
 @import "normalize";
 
 // Typekit
-//@import("typekit");
+//@import "typekit";
 
 // WordPress Styles
 @import "wp-styles";
@@ -28,18 +28,5 @@
 // Helpers
 @import "helpers";
 
-
-.site-title {
-	color: red;
-	font-size: 40px;
-}
-
-.page-title {
-	color: green;
-	font-size: 30px;
-}
-
-.entry-title {
-	color: orange;
-	font-size: 20px;
-}
+// Temporary Styles
+@import "temp";

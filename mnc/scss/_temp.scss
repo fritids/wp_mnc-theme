@@ -1,0 +1,65 @@
+/**
+ * Temporary Styles
+ */
+
+#page {
+	width: 1080px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+#header {
+	background: rgba(0,0,0,0.05);
+}
+
+#footer {
+	background: rgba(0,0,0,0.05);
+}
+
+#content {
+	width: 720px;
+	background: rgba(0,0,0,0.04);
+}
+
+#sidebar {
+	width: 340px;
+	background: rgba(0,0,0,0.02);
+}
+
+#content,
+#sidebar {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: -4px;
+}
+
+.site-title {
+	font-size: 40px;
+}
+
+.page-title {
+	font-size: 30px;
+}
+
+.entry-title {
+	font-size: 20px;
+}
+
+/*h1:before {
+	content: '<h1> ';
+}
+h2:before {
+	content: '<h2> ';
+}
+h3:before {
+	content: '<h3> ';
+}
+h4:before {
+	content: '<h4> ';
+}
+h5:before {
+	content: '<h5> ';
+}
+h6:before {
+	content: '<h6> ';
+}*/
