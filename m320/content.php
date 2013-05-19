@@ -1,37 +1,23 @@
-<?php
-/**
- * The default template for displaying content
- *
- * @package WordPress
- * @subpackage m320
- */
-?>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-		<header class="entry-header">
+	<header>
+		<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'm320' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 			<h1 class="entry-title">
-				<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'm320' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-					<?php the_title(); ?>
-				</a>
+				<?php the_title(); ?>
 			</h1>
+		</a>
 
-			<?php if (is_single()) : ?>
-				<?php m320_entry_meta(array('author', 'date', 'categories', 'tags')) ?>
-			<?php else : ?>
-				<?php m320_entry_meta(array('date')) ?>
-			<?php endif; ?>
-		</header>
-
-		<?php if ( is_search() ) :?>
-		<div class="entry-summary">
-			<?php the_excerpt(); ?>
-		</div>
+		<?php if (is_single()) : ?>
+			<?php m320_entry_meta(array('author', 'date', 'categories', 'tags')) ?>
 		<?php else : ?>
-		<div class="entry-content">
-			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'm320' ) ); ?>
-			<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'm320' ) . '</span>', 'after' => '</div>' ) ); ?>
-		</div>
+			<?php m320_entry_meta(array('date')) ?>
 		<?php endif; ?>
+	</header>
 
-	</article>
+	<?php if ( is_search() ) :?>
+		<?php the_excerpt(); ?>
+	<?php else : ?>
+		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'm320' ) ); ?>
+	<?php endif; ?>
+
+</article>

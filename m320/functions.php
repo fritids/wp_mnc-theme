@@ -171,6 +171,42 @@ add_action('publish_post', function($post_id){
     wp_mail( get_option('admin_email'), '[Blog Post] ' . $title , $permalink );
 });
 
+/**
+ * For using width jQuery Magnific popup Plugin
+ * ADD rel="gallery" to all images in "the_content"
+ */
+add_filter('the_content', function( $content ){
+
+    global $post;
+    $pattern ="/<a(.*?)href=('|\")(.*?).(bmp|gif|jpeg|jpg|png)('|\")(.*?)>/i";
+    $replacement = '<a$1href=$2$3.$4$5 rel="gallery" title="'.$post->post_title.'"$6>';
+    $content = preg_replace($pattern, $replacement, $content);
+
+    return $content;
+
+});
+
+/**
+ * Wrap iframes with .video-container
+ * http://webdesignerwall.com/tutorials/css-elastic-videos
+ */
+add_filter('the_content', function( $content ){
+
+    $pattern = '~<iframe.*</iframe>~';
+    preg_match_all($pattern, $content, $matches);
+
+    foreach ($matches[0] as $match) {
+        // wrap matched iframe with div
+        $wrappedframe = '<div class="video-container">' . $match . '</div>';
+
+        //replace original iframe with new in content
+        $content = str_replace($match, $wrappedframe, $content);
+    }
+
+    return $content;
+
+});
+
 
 
 
@@ -187,7 +223,7 @@ THEME FUNCTIONS
  *
  */
 if (!function_exists('m320_entry_meta')) {
-    function m320_entry_meta ($items = [])  {
+    function m320_entry_meta($items = [])  {
         echo '<ul class="entry-meta">';
 
             // Author

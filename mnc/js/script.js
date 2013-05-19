@@ -3,11 +3,7 @@
     'use strict';
     console.log( MNC );
 
-    // Automatic functions
     $(window).load(function(){
-
-        // Run FitVids.js
-        $('.post').find('.entry-content').fitVids();
 
         // Polyfill for placeholder, required & autofocus
         /*var minformUrl = MNC.templateUri + '/js/minform.js';

@@ -76,7 +76,9 @@
     *zoom: 1;
 }
 
-// Skip link
+/**
+ * Skip links
+ */
 .skip-link {
     position: absolute !important;
     clip: rect(1px, 1px, 1px, 1px);
@@ -96,4 +98,26 @@
     top: 5px;
     left: 5px;
     z-index: 100000; /* Above WP toolbar */
+}
+
+/**
+ * Responsive embed videos
+ * Works with functions.php "the_content" hook
+ */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

@@ -6,17 +6,17 @@
 * @subpackage m320
 */
 ?>
-<section class="secondary sidebar blog" role="complementary">
+<section id="sidebar" role="complementary">
 
-	<h2>Sidebar</h2>
+	<h1>Sidebar</h1>
 
-	<aside class="widget w-search">
-		<h3 class="s-visuallyhidden"><?php _e( 'Blog Search', 'm320' ); ?></h3>
+	<div class="widget w-search">
+		<h2><?php _e( 'Blog Search', 'm320' ); ?></h2>
 		<?php get_search_form(); ?>
-	</aside>
+	</div>
 
-	<aside class="widget w-categories">
-		<h3><?php _e( 'Posts Categories', 'm320' ); ?></h3>
+	<div class="widget w-categories">
+		<h2><?php _e( 'Posts Categories', 'm320' ); ?></h2>
 
 		<?php $cats = get_categories(); ?>
 		<ul>
@@ -26,26 +26,26 @@
 			}
 			?>
 		</ul>
-	</aside>
+	</div>
 
-	<aside class="widget w-recentposts">
+	<div class="widget w-recentposts">
 		<?php $args = array(
 			'numberposts' => 5,
 			'orderby' => 'post_date'
 			);
 		$posts = get_posts($args);
 		?>
-		<h3><?php _e( 'Recent Posts', 'm320' ); ?></h3>
+		<h2><?php _e( 'Recent Posts', 'm320' ); ?></h2>
 		<ul>
 			<?php foreach($posts as $post) : ?>
 				<li><a href="<?php the_permalink(); ?>" title="<?php the_title() ?>"><?php the_title(); ?></a></li>
 			<?php endforeach; ?>
 		</ul>
-	</aside>
+	</div>
 
 
-	<aside class="widget w-tags">
-		<h3><?php _e( 'Posts Tags', 'm320' ); ?></h3>
+	<div class="widget w-tags">
+		<h2><?php _e( 'Posts Tags', 'm320' ); ?></h2>
 		<?php $args = array(
 			'smallest' => 10,
 			'largest' => 20,
@@ -56,6 +56,6 @@
 			'format' => 'list'
 		); ?>
 		<?php wp_tag_cloud($args); ?>
-	</aside>
+	</div>
 
 </section>
