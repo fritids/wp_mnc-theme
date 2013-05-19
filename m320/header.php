@@ -38,16 +38,16 @@
 
 <body <?php body_class(); ?>>
 	<div id="page" class="hfeed site">
-		<header id="header" class="site-header" role="banner">
+		<header id="header" class="header" role="banner">
 			<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 				<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
 			</a>
 
-			<div id="nav" class="main-nav" role="navigation">
+			<div class="main-nav" role="navigation">
 				<a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'm320' ); ?>"><?php _e( 'Skip to content', 'm320' ); ?></a>
 				<?php wp_nav_menu( array('container' => false, 'menu' => 'primary', 'menu_class' => 'menu inline' ) ) ?>
 			</div>
 		</header>
 
-		<main id="main">
+		<main id="main" class="main">
 

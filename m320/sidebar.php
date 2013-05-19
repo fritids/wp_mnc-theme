@@ -6,9 +6,9 @@
 * @subpackage m320
 */
 ?>
-<section id="sidebar" role="complementary">
+<section id="sidebar" class="sidebar" role="complementary">
 
-	<h1>Sidebar</h1>
+	<h1 class="visuallyhidden">Sidebar</h1>
 
 	<div class="widget w-search">
 		<h2><?php _e( 'Blog Search', 'm320' ); ?></h2>

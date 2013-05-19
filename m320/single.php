@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
-<section id="content" role="main">
+<section id="content" class="content" role="main">
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<div <?php post_class(); ?>>
 
 			<h1 class="page-title">
 				<?php the_title(); ?>

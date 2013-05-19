@@ -8,7 +8,7 @@
  */
 ?>
         </main>
-    	<footer id="footer" class="site-footer" role="contentinfo">
+    	<footer id="footer" class="footer" role="contentinfo">
     		<div class="dev-info">
     			<p class="dev-info-copy">&copy;2013 <?php bloginfo(); ?></p>
             	<p class="dev-info-author"><a href="http://matiasmancini.com.ar" title="Matias Mancini - WebSite" target="_blank">Matias Mancini</a></p>

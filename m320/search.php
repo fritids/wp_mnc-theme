@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section id="content" role="main">
+<section id="content" class="content" role="main">
 
 <?php if ( have_posts() ) : ?>
 

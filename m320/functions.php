@@ -244,16 +244,16 @@ if (!function_exists('m320_entry_meta')) {
 
             // Categories
             if (in_array('categories', $items)) :
-            echo '<li class="entry-meta-categories">';
-                echo get_the_category_list( __( ', ', 'm320' ) );
-            echo '</li>';
+                if ($categories = get_the_category_list( __( ', ', 'm320' ) )) {
+                    echo "<li class=\"entry-meta-categories\">$categories</li>";
+                }
             endif;
 
             // Tags
             if (in_array('tags', $items)) :
-            echo '<li class="entry-meta-tags">';
-                echo get_the_tag_list( '', __( ', ', 'm320' ) );
-            echo '</li>';
+                if ($tags = get_the_tag_list( '', __( ', ', 'm320' ) )) {
+                    echo "<li class=\"entry-meta-tags\">$tags</li>";
+                }
             endif;
 
         echo '</ul>';

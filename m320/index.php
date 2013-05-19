@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section id="content" role="main">
+<section id="content" class="content" role="main">
 
 	<h1 class="page-title">
 		<?php _e('Recent Posts', 'm320'); ?>

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section id="content" role="main">
+<section id="content" class="content" role="main">
 
 <?php if ( have_posts() ) : ?>
 
@@ -16,14 +16,7 @@
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'm320' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-				<h1 class="entry-title">
-					<?php the_title(); ?>
-				</h1>
-			</a>
-			<?php the_excerpt(); ?>
-		</article>
+		<?php get_template_part( 'content', get_post_format() ); ?>
 
 	<?php endwhile; ?>
 
