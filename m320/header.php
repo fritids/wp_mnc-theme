@@ -45,7 +45,7 @@
 
 			<div class="main-nav" role="navigation">
 				<a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'm320' ); ?>"><?php _e( 'Skip to content', 'm320' ); ?></a>
-				<?php wp_nav_menu( array('container' => false, 'menu' => 'primary', 'menu_class' => 'menu inline' ) ) ?>
+				<?php wp_nav_menu( array('container' => false, 'menu' => 'primary', 'menu_class' => 'main-nav-menu' ) ) ?>
 			</div>
 		</header>
 
