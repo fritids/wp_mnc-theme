@@ -263,10 +263,10 @@ if (!function_exists('m320_post_meta')) {
 
 /**
  * Social Links for the Sidebar
- * Usage echo m320_get_social_links( array( 'facebook' => 'Facebook', 'twitter' => 'Twitter', 'googleplus' => 'Google+', 'linkedin' => 'LinkedIn' ) );
+ * Usage echo m320_social_links( array( 'facebook' => 'Facebook', 'twitter' => 'Twitter', 'googleplus' => 'Google+', 'linkedin' => 'LinkedIn' ) );
  **/
-if(!function_exists('m320_get_social_links')){
-    function m320_get_social_links( $social_networks, $rss = true ){
+if(!function_exists('m320_social_links')){
+    function m320_social_links( $social_networks, $rss = true ){
 
         $html = '<ul class="social-links">';
 
@@ -281,7 +281,7 @@ if(!function_exists('m320_get_social_links')){
 
         $html .= '</ul>';
 
-        return $html;
+        echo $html;
     }
 }
 
