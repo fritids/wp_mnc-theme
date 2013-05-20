@@ -10,12 +10,12 @@
 
 	<h1 class="visuallyhidden">Sidebar</h1>
 
-	<div class="widget w-search">
+	<div class="widget widget-search">
 		<h2><?php _e( 'Blog Search', 'm320' ); ?></h2>
 		<?php get_search_form(); ?>
 	</div>
 
-	<div class="widget w-categories">
+	<div class="widget widget-categories">
 		<h2><?php _e( 'Posts Categories', 'm320' ); ?></h2>
 
 		<?php $cats = get_categories(); ?>
@@ -28,7 +28,7 @@
 		</ul>
 	</div>
 
-	<div class="widget w-recentposts">
+	<div class="widget widget-recentposts">
 		<?php $args = array(
 			'numberposts' => 5,
 			'orderby' => 'post_date'
@@ -44,7 +44,7 @@
 	</div>
 
 
-	<div class="widget w-tags">
+	<div class="widget widget-tags">
 		<h2><?php _e( 'Posts Tags', 'm320' ); ?></h2>
 		<?php $args = array(
 			'smallest' => 10,
