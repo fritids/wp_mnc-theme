@@ -10,7 +10,7 @@
 				<?php the_title(); ?>
 			</h1>
 
-			<?php m320_entry_meta(array('author', 'date', 'categories', 'tags')) ?>
+			<?php m320_post_meta(array('author', 'date', 'categories', 'tags')) ?>
 
 			<?php the_content(); ?>
 

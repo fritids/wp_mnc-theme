@@ -218,17 +218,17 @@ THEME FUNCTIONS
 */
 
 /**
- * Entry meta list
- * Usage echo mnc_entry_meta( array('author', 'date', 'categories', 'tags') );
+ * Post Meta list
+ * Usage echo mnc_post_meta( array('author', 'date', 'categories', 'tags') );
  *
  */
-if (!function_exists('m320_entry_meta')) {
-    function m320_entry_meta($items = [])  {
-        echo '<ul class="entry-meta">';
+if (!function_exists('m320_post_meta')) {
+    function m320_post_meta($items = [])  {
+        echo '<ul class="post-meta">';
 
             // Author
             if (in_array('author', $items)) :
-                echo '<li class="entry-meta-author">';
+                echo '<li class="post-meta-author">';
                     echo '<a href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" title="' . sprintf(__( 'Posts by %s', 'm320'), get_the_author()) . '">';
                         echo printf(__('By %s', 'm320'), get_the_author());
                     echo '</a>';
@@ -237,7 +237,7 @@ if (!function_exists('m320_entry_meta')) {
 
             // Date
             if (in_array('date', $items)) :
-            echo '<li class="entry-meta-date">';
+            echo '<li class="post-meta-date">';
                 echo '<time datetime="' . get_the_date('c') . '">' . get_the_date('j F Y') . '</time>';
             echo '</li>';
             endif;
@@ -245,14 +245,14 @@ if (!function_exists('m320_entry_meta')) {
             // Categories
             if (in_array('categories', $items)) :
                 if ($categories = get_the_category_list( __( ', ', 'm320' ) )) {
-                    echo "<li class=\"entry-meta-categories\">$categories</li>";
+                    echo "<li class=\"post-meta-categories\">$categories</li>";
                 }
             endif;
 
             // Tags
             if (in_array('tags', $items)) :
                 if ($tags = get_the_tag_list( '', __( ', ', 'm320' ) )) {
-                    echo "<li class=\"entry-meta-tags\">$tags</li>";
+                    echo "<li class=\"post-meta-tags\">$tags</li>";
                 }
             endif;
 
